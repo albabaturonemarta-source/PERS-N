@@ -1,0 +1,356 @@
+<!-- =========================================================
+     MYLEARNING – FAQS 2 COLUMNAS + CTA FINAL (ENCAPSULADO)
+========================================================= -->
+
+<div class="ml-faq-container">
+  <h2 class="ml-faq-title">Frequently Asked Questions (FAQs)</h2>
+
+  <div class="ml-faq-grid">
+
+    <!-- FAQ 1 -->
+    <div class="ml-faq-item">
+      <button class="ml-faq-question" aria-expanded="false">
+        How can I access the GoodHabitz or EF platforms if I get an error message?
+      </button>
+      <div class="ml-faq-answer" role="region" aria-label="Answer: How can I access the GoodHabitz or EF platforms if I get an error message?">
+        <p>If you receive an error message when trying to access the GoodHabitz or EF platforms, you can enter through the Training Catalogue available on the MyLearning page. There, you will find the different Single Sign-On (SSO) options that allow you to access each platform.</p>
+      </div>
+    </div>
+
+ 
+
+    <!-- FAQ 3 -->
+    <div class="ml-faq-item">
+      <button class="ml-faq-question" aria-expanded="false">
+        How can I ask for a specific training?
+      </button>
+      <div class="ml-faq-answer" role="region" aria-label="Answer: How can I ask for a specific training?">
+        <p>To request a specific training, start by discussing your needs with your manager. If your manager reviews your request and identifies a real learning need, they will forward it to the Learning team for evaluation. The Learning team will then assess the request and decide whether the training can be approved or not.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="ml-faq-item">
+      <button class="ml-faq-question" aria-expanded="false">
+        How can I organize a training?
+      </button>
+      <div class="ml-faq-answer" role="region" aria-label="Answer: How can I organize a training?">
+        <p>To organize a training, you should collect and confirm all the key details required to coordinate the session effectively. Make sure to review the following aspects:</p>
+
+        <ul>
+          <li>Check whether the training has a cost.
+            <br><em>If it does, the Learning team will contact the provider to request the invoice and register them as a supplier, in case they are not already in our system.</em>
+          </li>
+          <li>Number of hours.
+            <br><em>If the training lasts 2 hours or more, it may be eligible for Fundae funding*.</em>
+          </li>
+          <li>Number of participants.</li>
+          <li>Need for a training room (layout, pens and notepads, coffee service for long/corporate trainings, projector or other equipment).</li>
+          <li>Training content and learning objectives.</li>
+        </ul>
+
+        <p>Once all this information is collected, the Learning team can review the request and proceed with the organization of the training.</p>
+      </div>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="ml-faq-item">
+      <button class="ml-faq-question" aria-expanded="false">
+        Where can I view my Individual Development Plan (IDP)?
+      </button>
+      <div class="ml-faq-answer" role="region" aria-label="Answer: Where can I view my Individual Development Plan (IDP)?">
+        <p>
+          You can view your Individual Development Plan (IDP) on the MyTraining section within the MyLearning platform.
+        </p>
+
+        <a class="ml-link-btn"
+           href="https://persan365.sharepoint.com/:u:/r/sites/Mylearning/SitePages/MyTraining.aspx?csf=1&web=1&share=IQAotEjfAeOmRIbhs6y5g1iRAf8WjeSZxUa4XiXI7kL-rW0&e=UWh2rx"
+           target="_blank" rel="noopener">
+           Click here
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================= CTA FINAL ================= -->
+  <div class="ml-faq-cta-wrap">
+    <a class="ml-faq-cta"
+       href="https://forms.office.com/Pages/ResponsePage.aspx?id=nb5YcgE_WkaLyZF9zjHecrNgmS2bxuVJrvXQ2wuTt6JURU5GTkUxOEJOMlpTSlc1WEpHVUhNOEYwSi4u"
+       target="_blank" rel="noopener"
+       aria-label="Send your questions and suggestions (opens in a new tab)">
+      <!-- ICONO SVG FORMULARIO (BLANCO) -->
+      <svg class="ml-cta-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+           viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M4 4h16v16H4z"/>
+        <path d="M8 8h8"/>
+        <path d="M8 12h8"/>
+        <path d="M8 16h5"/>
+      </svg>
+      <span>Send your questions &amp; suggestions</span>
+    </a>
+  </div>
+
+</div>
+
+<style>
+/* =========================================================
+   ESTILOS FAQ + CTA FINAL
+   Corporativo Persán (#007FA3) • Encapsulado
+========================================================= */
+
+.ml-faq-container {
+  max-width: 900px;
+  margin: 40px auto;
+  font-family: inherit;
+}
+
+.ml-faq-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #007FA3;
+  margin-bottom: 24px;
+}
+
+/* GRID 2 COLUMNAS */
+.ml-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+/* Responsive: 1 columna en móviles */
+@media (max-width: 700px) {
+  .ml-faq-grid { grid-template-columns: 1fr; }
+}
+
+/* Tarjeta FAQ (envoltorio general) */
+.ml-faq-item {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #ffffff !important;
+  transition: box-shadow .25s ease, border-color .25s ease;
+}
+
+/* Pregunta (botón) */
+.ml-faq-question {
+  width: 100%;
+  padding: 16px 20px;
+  background: #ffffff !important;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  color: #003c4a !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Flecha */
+.ml-faq-question::after {
+  content: "›";
+  font-size: 20px;
+  font-weight: bold;
+  color: #007FA3;
+  transition: transform .2s ease;
+}
+
+/* Rotación cuando se abre */
+.ml-faq-item.open .ml-faq-question::after {
+  transform: rotate(90deg);
+}
+
+/* Hover elegante solo en la pregunta */
+.ml-faq-question:hover {
+  background: #ffffff !important;
+}
+
+/* ========= VISUAL NUEVO PARA LAS RESPUESTAS (solo apariencia) ========= */
+
+/* Contenedor de respuesta: cerrado por defecto */
+.ml-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;                 /* se activa al abrir */
+  background: transparent;         /* sin fondo al estar cerrado */
+  transition: max-height .35s ease, padding .25s ease, background-color .25s ease;
+}
+
+/* Apariencia de card al abrir */
+.ml-faq-item.open .ml-faq-answer {
+  background: #ffffff;             /* card blanca como en la imagen */
+  border-top: 1px solid #e7eef1;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  padding: 16px 20px 20px;         /* ahora sí mostramos padding */
+  position: relative;
+}
+
+/* Borde izquierdo acento corporativo */
+.ml-faq-item.open .ml-faq-answer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0; bottom: 0;
+  width: 4px;
+  background: #007FA3;
+  border-bottom-left-radius: 12px;
+}
+
+/* Sombra general al abrir la tarjeta completa */
+.ml-faq-item.open {
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.05);
+}
+
+/* Tipografía y espaciado del contenido de la respuesta */
+.ml-faq-answer p {
+  margin: 12px 0;
+  color: #003c4a;
+  line-height: 1.5;
+}
+
+/* Listas dentro de la respuesta: bullets personalizados */
+.ml-faq-answer ul {
+  margin: 8px 0 12px 0;
+  padding-left: 20px;
+}
+.ml-faq-answer ul li {
+  margin: 6px 0;
+  position: relative;
+  list-style: none;
+}
+.ml-faq-answer ul li::before {
+  content: "•";
+  color: #007FA3;
+  font-weight: 900;
+  display: inline-block;
+  width: 16px;
+  margin-left: -16px;
+}
+
+/* Enlaces tipo botón ya existentes */
+.ml-link-btn {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #e8f5f9;
+  color: #005c72 !important;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(0, 127, 163, 0.25);
+}
+.ml-link-btn:hover {
+  background: #d8eef5;
+}
+
+/* ================= CTA FINAL ================= */
+.ml-faq-cta-wrap {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-start; /* cambia a center si lo quieres centrado */
+}
+
+.ml-faq-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #007FA3 !important;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 6px 16px rgba(0, 127, 163, 0.28);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* Icono */
+.ml-cta-icon { flex-shrink: 0; }
+
+/* Hover sin cambio de color */
+.ml-faq-cta:hover {
+  transform: translateY(-3px);
+  background: #007FA3 !important;
+  box-shadow: 0 10px 20px rgba(0, 127, 163, 0.35);
+}
+
+/* Bloqueo de estilos heredados agresivos */
+.ml-faq-cta,
+.ml-faq-cta *,
+.ml-faq-cta::before,
+.ml-faq-cta::after {
+  background-color: #007FA3 !important;
+  color: #ffffff !important;
+}
+</style>
+
+<script>
+/* =========================================================
+   ACORDEÓN – LÓGICA (abre uno y cierra el resto)
+   + Accesibilidad (aria-expanded)
+   + Recalcular altura al redimensionar
+========================================================= */
+
+(function() {
+  const items = document.querySelectorAll('.ml-faq-item');
+
+  function setAnswerHeight(answer, open) {
+    if (!answer) return;
+    if (open) {
+      // Forzar lectura de scrollHeight (layout thrash controlado)
+      const h = answer.scrollHeight;
+      answer.style.maxHeight = h + 'px';
+    } else {
+      answer.style.maxHeight = null;
+    }
+  }
+
+  items.forEach(item => {
+    const btn = item.querySelector('.ml-faq-question');
+    const answer = item.querySelector('.ml-faq-answer');
+    if (!btn || !answer) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Cierra otros
+      document.querySelectorAll('.ml-faq-item.open').forEach(openItem => {
+        if (openItem !== item) {
+          openItem.classList.remove('open');
+          const a = openItem.querySelector('.ml-faq-answer');
+          const b = openItem.querySelector('.ml-faq-question');
+          setAnswerHeight(a, false);
+          if (b) b.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Alterna este
+      if (!isOpen) {
+        item.classList.add('open');
+        setAnswerHeight(answer, true);
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        item.classList.remove('open');
+        setAnswerHeight(answer, false);
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Estado inicial accesible
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  // Recalcular altura al redimensionar (para que no se corte el contenido abierto)
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.ml-faq-item.open .ml-faq-answer').forEach(a => {
+      a.style.maxHeight = a.scrollHeight + 'px';
+    });
+  });
+})();
+</script>
