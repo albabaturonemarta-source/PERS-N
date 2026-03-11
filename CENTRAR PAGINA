@@ -1,0 +1,41 @@
+<style>
+    /* Centrar el contenido principal sin generar espacios extras */
+    div[data-automationid="CanvasZone"],
+    .CanvasZone {
+        max-width: 1240px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 !important;       /* Evita espacios internos */
+    }
+
+    @media (min-width: 1600px) {
+        div[data-automationid="CanvasZone"],
+        .CanvasZone {
+            max-width: 1440px !important;
+        }
+    }
+
+    /* Evitar espacios en el contenedor general */
+    #spPageChromeAppDiv {
+        background: #f5f5f5;
+        margin: 0 !important;        /* Elimina márgenes fantasma */
+        padding: 0 !important;
+    }
+
+    /* Evitar espacios en el área interior */
+    .CanvasComponent {
+        background: #f5f5f5;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Corrección adicional: eliminar posibles divs automáticos con spacing */
+    .ControlZone,
+    .ControlZone-control,
+    .ms-FocusZone {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+</style>
