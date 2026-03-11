@@ -1,0 +1,159 @@
+<!-- ============ MYLEARNING INTRO CARD – FULLY STATIC ============ -->
+<div class="ml-wow-card" role="region" aria-label="MyLearning introduction">
+  <div class="ml-glow" aria-hidden="true"></div>
+
+  <h2 class="ml-title">Welcome to MyLearning</h2>
+  <h3 class="ml-subtitle">(Persán's Training Space)</h3>
+
+  <p class="ml-text">Within MyLearning you will find:</p>
+
+  <ul class="ml-list">
+    <li><strong>My Training:</strong> check your assigned training, both compulsory and IDP.</li>
+    <li><strong>Persán Training Catalogue:</strong> general information on available resources and training.</li>
+  </ul>
+
+  <p class="ml-text">
+    You will also have access to the company’s <strong>Training Policy</strong>, FAQs and <strong>Contact</strong>.
+  </p>
+</div>
+
+<style>
+/* ================================================================
+   MYLEARNING CARD – FULLY STATIC (NO HOVER, NO BORDER, NO CHANGE)
+   ================================================================ */
+
+/* RESET ANY LMS HOVER/FILTERS (BORDER, BACKGROUND, OPACITY, OUTLINE) */
+.ml-wow-card,
+.ml-wow-card *,
+.ml-wow-card *::before,
+.ml-wow-card *::after {
+  opacity: 1 !important;
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* DISABLE HOVER/FORCE-FOCUS BEHAVIOURS */
+.ml-wow-card:hover,
+.ml-wow-card:focus,
+.ml-wow-card:focus-within,
+.ml-wow-card:hover *,
+.ml-wow-card:focus *,
+.ml-wow-card:focus-within * {
+  opacity: 1 !important;
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+}
+
+/* REMOVE LMS-GENERATED OVERLAYS */
+.ml-wow-card::before,
+.ml-wow-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* ---------------- STATIC CARD ---------------- */
+.ml-wow-card {
+  position: relative;
+  padding: 28px;
+  border-radius: 18px;
+  max-width: 560px;
+  margin: 24px auto;
+  font-family: "Whitney", "Segoe UI", Roboto, Arial, sans-serif !important;
+  overflow: hidden;
+  isolation: isolate;
+
+  /* SÓLIDO SIEMPRE */
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+
+  /* BORDE FIJO SUAVE */
+  border: 1px solid rgba(0,0,0,0.06) !important;
+
+  /* SOMBRA CONSTANTE */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10) !important;
+
+  /* NO ANIMACIONES Y NO MOVIMIENTO */
+  cursor: default !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* HOVER = NADA DE NADA */
+.ml-wow-card:hover {
+  transform: none !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10) !important;
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  opacity: 1 !important;
+}
+
+/* ---------------- ANIMATED GLOW (OPCIONAL, NO AFECTA A HOVER) ---------------- */
+.ml-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(130deg, #007FA3, #00b4d8, #007FA3);
+  background-size: 300% 300%;
+  animation: ml-glow-anim 7s ease infinite;
+  z-index: -1;
+}
+
+.ml-glow::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 18px;
+  background: #ffffff !important;
+}
+
+@keyframes ml-glow-anim {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------------- TYPOGRAPHY ---------------- */
+.ml-title {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #007FA3 !important;
+  font-family: "Whitney", "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+.ml-subtitle {
+  margin: 0 0 18px 0;
+  font-size: 16px;
+  color: #005b75;
+  font-weight: 600;
+}
+
+.ml-text {
+  margin: 0 0 14px 0;
+  line-height: 1.55;
+}
+
+.ml-list {
+  margin: 0 0 18px 0;
+  padding-left: 20px;
+}
+
+.ml-list li {
+  margin-bottom: 10px;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 640px) {
+  .ml-wow-card { padding: 22px; border-radius: 16px; }
+  .ml-title    { font-size: 24px; }
+  .ml-subtitle { font-size: 15px; }
+}
+</style>
+``
