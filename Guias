@@ -1,0 +1,171 @@
+<style>
+  :root {
+    --brand: #007fa3;
+    --brand-dark: #005f7c;
+    --text: #0f2a30;
+    --bg: #f4f8f9;
+    --white: #ffffff;
+    --radius: 16px;
+    --shadow: 0 6px 16px rgba(0,0,0,0.10);
+    --transition: .25s ease;
+  }
+
+  .guides-section {
+    padding: 40px 24px;
+    max-width: 1100px;
+    margin: auto;
+    font-family: "Whitney", "Segoe UI", system-ui, sans-serif;
+  }
+
+  .guides-title {
+    font-size: 32px;
+    color: var(--brand);
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+  }
+
+  .guide-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    border: 1px solid rgba(0,127,163,.32);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    transition: var(--transition);
+  }
+
+  .guide-card:hover {
+    background: var(--brand);
+    color: var(--white);
+    border-color: var(--brand);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(0,127,163,.35);
+  }
+
+  .guide-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(0,127,163,.12);
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+  }
+
+  .guide-card:hover .guide-icon {
+    background: rgba(255,255,255,.25);
+  }
+
+  .guide-icon svg {
+    width: 26px;
+    height: 26px;
+    fill: var(--brand);
+    transition: var(--transition);
+  }
+
+  .guide-card:hover .guide-icon svg {
+    fill: var(--white);
+    transform: scale(1.1);
+  }
+
+  .guide-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .guide-desc {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: .75;
+  }
+
+  .guide-card:hover .guide-desc {
+    opacity: 1;
+  }
+
+</style>
+
+<div class="guides-section">
+  <h2 class="guides-title">Guides</h2>
+
+  <div class="guides-grid">
+
+    <!-- CARD 1 -->
+    <a class="guide-card" href="https://persan365.sharepoint.com/:b:/r/sites/ManPer/Documentos%20compartidos/H2%202025/01.%20Development%20conversation%20H2%202025.pdf" target="_blank">
+      <div class="guide-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      </div>
+      <div class="guide-title">Development Conversation H2 2025</div>
+      <div class="guide-desc">Structure and key points to prepare your development meeting.</div>
+    </a>
+
+    <!-- CARD 2 -->
+    <a class="guide-card" href="https://persan365.sharepoint.com/:b:/r/sites/ManPer/Documentos%20compartidos/H2%202025/02.%20Guide%20evaluators%20objectives%202025.pdf" target="_blank">
+      <div class="guide-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Z"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
+      <div class="guide-title">Guide for Evaluators – Objectives 2025</div>
+      <div class="guide-desc">Instructions for managers evaluating objectives during the 2025 cycle.</div>
+    </a>
+
+    <!-- CARD 3 -->
+    <a class="guide-card" href="https://persan365.sharepoint.com/:b:/r/sites/ManPer/Documentos%20compartidos/H2%202025/02.%20Individual%20Development%20Plan.pdf" target="_blank">
+      <div class="guide-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      </div>
+      <div class="guide-title">Individual Development Plan</div>
+      <div class="guide-desc">Template and guidance for building your personalized IDP plan.</div>
+    </a>
+
+    <!-- CARD 4 -->
+    <a class="guide-card" href="https://persan365.sharepoint.com/:b:/r/sites/ManPer/Documentos%20compartidos/H2%202025/03.%20Feedback%20preparation%20with%20your%20manager.pdf" target="_blank">
+      <div class="guide-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 2h6a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+      </div>
+      <div class="guide-title">Feedback Preparation · Manager</div>
+      <div class="guide-desc">Prepare structured feedback conversations with your manager.</div>
+    </a>
+
+    <!-- CARD 5 -->
+    <a class="guide-card" href="https://persan365.sharepoint.com/:b:/r/sites/ManPer/Documentos%20compartidos/H2%202025/04.%20Feedback%20preparation%20with%20your%20collaborator.pdf" target="_blank">
+      <div class="guide-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 10H7V8h10M17 14H7v-2h10"/></svg>
+      </div>
+      <div class="guide-title">Feedback Preparation · Collaborator</div>
+      <div class="guide-desc">Support collaborative, productive feedback discussions with your teams.</div>
+    </a>
+
+    <!-- CARD 6 -->
+    <a class="guide-card" href="https://persan365.sharepoint.com/:b:/r/sites/ManPer/Documentos%20compartidos/H2%202025/05.%20HRider%20Guide%20-%20Evaluators.pdf" target="_blank">
+      <div class="guide-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      </div>
+      <div class="guide-title">HRider Guide – Evaluators</div>
+      <div class="guide-desc">How to navigate HRider and complete evaluations as a reviewer.</div>
+    </a>
+
+    <!-- CARD 7 -->
+    <a class="guide-card" href="https://persan365.sharepoint.com/:b:/r/sites/ManPer/Documentos%20compartidos/H2%202025/06.%20HRider%20Guide%20-%20Self-evaluation.pdf" target="_blank">
+      <div class="guide-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="guide-title">HRider Guide – Self-evaluation</div>
+      <div class="guide-desc">Steps to complete your self-assessment in HRider.</div>
+    </a>
+
+  </div>
+</div>
