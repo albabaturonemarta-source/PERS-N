@@ -1,0 +1,19 @@
+<div class="pc">
+  <p>Throughout the Performance cycle, you will go through three key conversations designed to help you reflect, evaluate progress, and set your development path.</p>
+  <ul>
+    <li><strong>Competencies Evaluation:</strong> review of strengths, behaviours and development areas.</li>
+    <li><strong>Objectives Evaluation:</strong> assessment of goals and overall progress.</li>
+    <li><strong>Setting Objectives 2026:</strong> definition of new aligned goals for the coming year.</li>
+  </ul>
+  <p>These three stages provide a structured framework to support your growth and ensure alignment with your team and the company.</p>
+</div>
+
+<style>
+.pc{max-width:780px;margin:20px auto;padding:32px;background:#fff;border-radius:16px;font-family:'Segoe UI',sans-serif;color:#003c4a;border:1px solid #0001;box-shadow:0 8px 28px #0002}
+.pc h2{margin:0;text-align:center;font-size:26px;font-weight:800;color:#007fa3}
+.pc h3{margin:6px 0 20px;text-align:center;font-size:15px;font-weight:600;color:#005b75}
+.pc p{margin:0 0 14px;line-height:1.55;font-size:.95rem}
+.pc ul{margin:0 0 18px;padding-left:20px}
+.pc li{margin-bottom:10px;font-size:.94rem}
+@media(max-width:700px){.pc{padding:22px}.pc h2{font-size:22px}}
+</style>
