@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>People Document Center - Persán</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+/* ============================================================
+   =   NEW PERFORMANCE-STYLE DOCUMENT CENTER (PERSÁN)         =
+   ============================================================ */
+
+:root{
+  --brand:#007fa3;
+  --brand-dark:#005f7c;
+  --bg:#e6f4f7;
+  --card:white;
+  --text:#00333f;
+  --radius:16px;
+}
+
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 22px 80px;
+}
+
+.title{
+  text-align:center;
+  font-size:36px;
+  font-weight:800;
+  margin:0 0 8px;
+  color:var(--brand-dark);
+}
+
+.subtitle{
+  text-align:center;
+  font-size:18px;
+  margin:0 0 35px;
+  color:var(--brand);
+}
+
+/* Search */
+.search-row{
+  display:flex;
+  justify-content:center;
+  margin-bottom:25px;
+}
+
+#searchInput{
+  padding:14px 18px;
+  width:100%;
+  max-width:520px;
+  border-radius:999px;
+  border:2px solid var(--brand);
+  font-size:16px;
+  outline:none;
+}
+#searchInput:focus{
+  border-color:var(--brand-dark);
+  box-shadow:0 0 0 3px rgba(0,127,163,.25);
+}
+
+/* Filters */
+.filters{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:25px;
+  flex-wrap:wrap;
+}
+
+.filter-btn{
+  padding:10px 20px;
+  border-radius:999px;
+  border:1px solid var(--brand);
+  background:#f0fafc;
+  color:var(--brand);
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.filter-btn:hover{
+  background:var(--brand);
+  color:white;
+}
+
+.filter-btn.active{
+  background:var(--brand);
+  color:white;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  gap:28px;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+}
+
+/* Card */
+.card{
+  background:white;
+  border-radius:var(--radius);
+  padding:24px 22px;
+  border:1px solid #c7e1e8;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+}
+
+.card-title{
+  margin:0 0 8px;
+  font-size:20px;
+  font-weight:700;
+  color:var(--brand-dark);
+}
+
+.card-meta{
+  font-size:14px;
+  opacity:.8;
+  margin-bottom:12px;
+}
+
+.tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.tag{
+  padding:5px 12px;
+  background:#eef6f8;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--brand-dark);
+}
+
+.hidden{display:none}
+
+/* Modal */
+#modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:999;
+}
+
+#modal.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-content{
+  background:white;
+  padding:32px;
+  border-radius:18px;
+  width:100%;
+  max-width:550px;
+  position:relative;
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
+}
+
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:none;
+  border:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.modal-title{
+  margin:0 0 10px;
+  font-size:26px;
+  font-weight:800;
+  color:var(--brand-dark);
+}
+
+.modal-meta{
+  margin-bottom:14px;
+  opacity:.8;
+}
+
+.modal-summary{
+  font-size:16px;
+  line-height:1.5;
+}
+
+.modal-actions{
+  margin-top:30px;
+  display:flex;
+  justify-content:flex-end;
+  gap:12px;
+}
+
+.btn{
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+  border:none;
+  font-size:14px;
+}
+
+.btn-primary{
+  background:var(--brand);
+  color:white;
+}
+
+.btn-secondary{
+  background:#ddd;
+}
+
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1 class="title">People Document Center</h1>
+<p class="subtitle">Policies · Procedures · Protocols · Codes</p>
+
+<!-- SEARCH -->
+<div class="search-row">
+<input id="searchInput" type="search" placeholder="Search documents…">
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="politica">Policies</button>
+<button class="filter-btn" data-filter="procedimiento">Procedures</button>
+<button class="filter-btn" data-filter="protocolo">Protocols</button>
+<button class="filter-btn" data-filter="código">Codes</button>
+</div>
+
+<!-- GRID -->
+<div class="grid" id="docGrid">
+
+<!-- ========================================= -->
+<!--             CARDS LIMPIAS                 -->
+<!-- ========================================= -->
+
+
+<article class="card" data-type="politica"
+ data-title="Training Policy"
+ data-tags="training development talent learning"
+ data-link="https://persan365.sharepoint.com/:b:/s/desarrollo/IQARR6E8TnoUQqYuoDOLDH6cAabC00RZDZQd9LOScOe2_Cw?e=p2t0x8"
+ data-pdf="https://persan365.sharepoint.com/:b:/s/desarrollo/IQARR6E8TnoUQqYuoDOLDH6cAabC00RZDZQd9LOScOe2_Cw?e=p2t0x8"
+ data-summary="The Training Policy establishes the framework for professional development."
+ data-version="2026">
+<h3 class="card-title">Training Policy</h3>
+<div class="card-meta">Version 2026</div>
+<div class="tags">
+<span class="tag">Training</span>
+<span class="tag">Development</span>
+<span class="tag">Talent</span>
+</div>
+</article>
+
+<article class="card" data-type="politica"
+ data-title="International Mobility Policy"
+ data-tags="mobility international assignment travel"
+ data-link="https://persan365.sharepoint.com/SitePages/Pol%C3%ADtica-de-Movilidad-Internacional.aspx"
+ data-pdf="https://persan365.sharepoint.com/SiteAssets/SitePages/cc8b5145-8b78-4467-92a3-529b8d046f86/Pol%C3%ADtica-de-Movilidad-Internacional-R3.pdf"
+ data-summary="Regulates international assignments."
+ data-version="R3">
+<h3 class="card-title">International Mobility Policy</h3>
+<div class="card-meta">Version R3</div>
+<div class="tags">
+<span class="tag">Mobility</span>
+<span class="tag">International</span>
+</div>
+</article>
+
+<article class="card" data-type="politica"
+ data-title="Flexible Compensation Policy"
+ data-tags="compensation benefits retribution"
+ data-link="https://persan365.sharepoint.com/SitePages/Plan-de-Retribuci%C3%B3n-Flexible.aspx"
+ data-pdf="https://persan365.sharepoint.com/SiteAssets/SitePages/Page(1)/Plan-de-Retribuci%C3%B3n-flexible-en-Pers%C3%A1n-2026.pdf"
+ data-summary="Allows allocating part of the salary to tax‑exempt products."
+ data-version="2026">
+<h3 class="card-title">Flexible Compensation Policy</h3>
+<div class="card-meta">Version 2026</div>
+<div class="tags">
+<span class="tag">Compensation</span>
+<span class="tag">Benefits</span>
+</div>
+</article>
+
+<article class="card" data-type="politica"
+ data-title="Vacation Policy"
+ data-tags="vacation leave rest"
+ data-link="https://persan365.sharepoint.com/SitePages/Pol%C3%ADtica-de-Vacaciones.aspx"
+ data-summary="Establishes number of days and management rules."
+ data-version="2022">
+<h3 class="card-title">Vacation Policy</h3>
+<div class="card-meta">Updated 2022</div>
+<div class="tags">
+<span class="tag">Vacation</span>
+<span class="tag">HR</span>
+</div>
+</article>
+
+<article class="card" data-type="politica"
+ data-title="Travel Policy"
+ data-tags="travel expenses request"
+ data-link="https://persan365.sharepoint.com/SitePages/Politica-de-viajes.aspx"
+ data-pdf="https://persan365.sharepoint.com/Documentos%20compartidos/Pol%C3%ADtica%20de%20viajes%20Persan%20Corporativa%20v2.pdf"
+ data-summary="Travel request, limits, rules."
+ data-version="2">
+<h3 class="card-title">Travel Policy</h3>
+<div class="card-meta">Version 2</div>
+<div class="tags">
+<span class="tag">Travel</span>
+<span class="tag">Expenses</span>
+</div>
+</article>
+
+<article class="card" data-type="procedimiento"
+ data-title="Corporate Procedure 7p"
+ data-tags="tax exemption expatriates IRPF"
+ data-link="https://persan365.sharepoint.com/SitePages/PC7p.aspx"
+ data-pdf="https://persan365.sharepoint.com/SiteAssets/SitePages/PC7p/2605144741Procedimiento-corporativo-7p-Pers%C3%A1n-v5.pdf"
+ data-summary="IRPF 7p exemption procedure."
+ data-version="v5">
+<h3 class="card-title">Corporate Procedure 7p</h3>
+<div class="card-meta">Version v5</div>
+<div class="tags">
+<span class="tag">Tax</span>
+<span class="tag">Exemption</span>
+</div>
+</article>
+
+<article class="card" data-type="procedimiento"
+ data-title="Corporate Signature Procedure"
+ data-tags="signature documents approval"
+ data-link="https://persan365.sharepoint.com/SitePages/Procedimiento-firma-Corporativa.aspx"
+ data-pdf="https://persan365.sharepoint.com/SiteAssets/SitePages/d618bd25-ad9a-4066-ba50-273c18c57dc4/Procedimiento-de-Firma-Corporativa-ESP.pdf"
+ data-summary="Regulates who can sign official documents."
+ data-version="Updated">
+<h3 class="card-title">Corporate Signature Procedure</h3>
+<div class="card-meta">Updated Version</div>
+<div class="tags">
+<span class="tag">Signature</span>
+<span class="tag">Legal</span>
+</div>
+</article>
+
+<article class="card" data-type="código"
+ data-title="Dress Code"
+ data-tags="attire image dresscode"
+ data-link="https://persan365.sharepoint.com/SitePages/Codigo-de-Vestimenta.aspx"
+ data-summary="Corporate clothing rules."
+ data-version="Current">
+<h3 class="card-title">Dress Code</h3>
+<div class="card-meta">Current Update</div>
+<div class="tags">
+<span class="tag">Attire</span>
+<span class="tag">Image</span>
+</div>
+</article>
+
+<article class="card" data-type="procedimiento"
+ data-title="Salary Settlement"
+ data-tags="salary payroll advance"
+ data-link="https://persan365.sharepoint.com/SitePages/Liquidacion-de-Salario.aspx"
+ data-summary="Explains advance and payroll cycle."
+ data-version="Current">
+<h3 class="card-title">Salary Settlement</h3>
+<div class="card-meta">Current Information</div>
+<div class="tags">
+<span class="tag">Payroll</span>
+<span class="tag">Payments</span>
+</div>
+</article>
+
+<article class="card" data-type="politica"
+ data-title="Persán Equality Plan"
+ data-tags="equality diversity harassment"
+ data-link="https://persan365.sharepoint.com/SitePages/Plan-de-Igualdad-de-pers%C3%A1n,-S.A.aspx"
+ data-pdf="https://persan365.sharepoint.com/SiteAssets/SitePages/f73d1d85-6f32-4a89-b11a-61c9ac301154/Plan-de-Igualdad-de-Pers%C3%A1n--S.A.-2024_2027.pdf"
+ data-summary="Real equality measures."
+ data-version="2024–2027">
+<h3 class="card-title">Persán Equality Plan</h3>
+<div class="card-meta">2024–2027</div>
+<div class="tags">
+<span class="tag">Equality</span>
+<span class="tag">Diversity</span>
+</div>
+</article>
+
+<article class="card" data-type="protocolo"
+ data-title="Anti‑Harassment Protocol"
+ data-tags="harassment protocol report"
+ data-link="https://persan365.sharepoint.com/SitePages/Plan-de-Igualdad-de-pers%C3%A1n,-S.A.aspx"
+ data-pdf="https://persan365.sharepoint.com/SiteAssets/SitePages/f73d1d85-6f32-4a89-b11a-61c9ac301154/Protocolo-contra-el-acoso-en-Persan.pdf"
+ data-summary="Prevention and action protocol."
+ data-version="Current">
+<h3 class="card-title">Anti‑Harassment Protocol</h3>
+<div class="card-meta">Current Update</div>
+<div class="tags">
+<span class="tag">Harassment</span>
+<span class="tag">Prevention</span>
+</div>
+</article>
+
+</div> <!-- end grid -->
+</div> <!-- end container -->
+
+<!-- MODAL -->
+<div id="modal">
+<div class="modal-content">
+<button class="close-btn" id="modalClose">✕</button>
+<h2 class="modal-title" id="modalTitle"></h2>
+<div class="modal-meta" id="modalMeta"></div>
+<div class="modal-summary" id="modalSummary"></div>
+<div class="modal-actions">
+<button class="btn btn-secondary" id="btnCerrar">Close</button>
+<button class="btn btn-primary" id="btnAbrir">Open document</button>
+<button class="btn" id="btnDescargar">Download PDF</button>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+
+const grid = document.getElementById("docGrid");
+const searchInput = document.getElementById("searchInput");
+const filterBtns = document.querySelectorAll(".filter-btn");
+
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalMeta = document.getElementById("modalMeta");
+const modalSummary = document.getElementById("modalSummary");
+const btnAbrir = document.getElementById("btnAbrir");
+const btnDescargar = document.getElementById("btnDescargar");
+const btnCerrar = document.getElementById("btnCerrar");
+const btnClose = document.getElementById("modalClose");
+
+let term = "";
+let activeFilter = "all";
+
+function applyFilters(){
+  const cards = grid.querySelectorAll(".card");
+  cards.forEach(card=>{
+    const matchesType = activeFilter==="all" || card.dataset.type===activeFilter;
+    const searchText = (card.dataset.title + " " + card.dataset.tags).toLowerCase();
+    const matchesSearch = searchText.includes(term);
+    card.classList.toggle("hidden", !(matchesType && matchesSearch));
+  });
+}
+
+searchInput.addEventListener("input", e=>{
+  term = e.target.value.toLowerCase();
+  applyFilters();
+});
+
+filterBtns.forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    filterBtns.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+grid.addEventListener("click", e=>{
+  const card = e.target.closest(".card");
+  if(!card) return;
+
+  modalTitle.textContent = card.dataset.title;
+  modalMeta.textContent = card.dataset.version ? "Version: " + card.dataset.version : "";
+  modalSummary.textContent = card.dataset.summary;
+
+  const link = card.dataset.link;
+  const pdf  = card.dataset.pdf;
+
+  btnAbrir.onclick = () => { if(link) window.open(link, "_blank"); };
+
+  if(pdf){
+    btnDescargar.classList.remove("hidden");
+    btnDescargar.onclick = ()=> window.open(pdf, "_blank");
+  } else {
+    btnDescargar.classList.add("hidden");
+    btnDescargar.onclick = null;
+  }
+
+  modal.classList.add("open");
+});
+
+function closeModal(){
+  modal.classList.remove("open");
+}
+
+btnCerrar.onclick = closeModal;
+btnClose.onclick = closeModal;
+modal.addEventListener("click", e=>{ if(e.target===modal) closeModal(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
+
+})();
+</script>
+
+</body>
+</html>
+``
