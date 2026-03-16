@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Social Benefits – Persán Polska</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+:root {
+  --brand: #007FA3;
+  --brand-dark: #007fa3;
+  --bg: #f7f9fb;
+  --text: #1f2e35;
+  --card-bg: #ffffff;
+  --radius: 18px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-hover: 0 6px 22px rgba(0,0,0,0.10);
+  --transition: .25s ease;
+  --font: "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1180px;
+  margin: auto;
+  padding: 48px 20px 100px;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 42px;
+  color: var(--brand-dark);
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  position: relative;
+  padding: 26px 24px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card.no-mail {
+  cursor: default;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  background: #eef4f7;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+
+.icon svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--brand);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* ---------------- OVERLAY UPDATED ---------------- */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--brand);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: var(--transition);
+}
+
+.card:hover .overlay,
+.card:focus-within .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlay-desc {
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.overlay-purpose {
+  font-size: 13px;
+  text-transform: lowercase;
+  opacity: 0.9;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--brand-dark);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  opacity: 0;
+  transition: .3s ease;
+  pointer-events: none;
+  z-index: 999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="title">SOCIAL BENEFITS – HOW CAN WE HELP YOU?</h1>
+
+  <div class="grid">
+
+    <!-- PRODUCTION BONUS -->
+    <div class="card no-mail">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5z"/></svg></span>
+      <span class="card-title">PRODUCTION BONUS (7.5%)</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Monthly performance-based bonus (up to 7.5%).</strong></div>
+        <div class="overlay-purpose">automatic benefit – no action needed</div>
+      </div>
+    </div>
+
+    <!-- MULTISPORT -->
+    <div class="card" data-key="multisport">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></span>
+      <span class="card-title">MULTISPORT CARD (50%)</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Sports card subsidized by the company.</strong></div>
+        <div class="overlay-purpose">click here to request it</div>
+      </div>
+    </div>
+
+    <!-- ADVERTISING PRODUCTS -->
+    <div class="card" data-key="advertising_products">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v6H3z"/></svg></span>
+      <span class="card-title">COMPANY ADVERTISING PRODUCTS</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Promotional items available for employees.</strong></div>
+        <div class="overlay-purpose">click here if you have any doubts</div>
+      </div>
+    </div>
+
+    <!-- MEAL SUBSIDY -->
+    <div class="card" data-key="meal_subsidy">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v6H4z"/></svg></span>
+      <span class="card-title">MEAL SUBSIDY (12 PLN)</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Daily meal subsidy of 12 PLN.</strong></div>
+        <div class="overlay-purpose">click here if you have any doubts</div>
+      </div>
+    </div>
+
+    <!-- DEVELOPMENT -->
+    <div class="card no-mail">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M2 3h20v4H2z"/></svg></span>
+      <span class="card-title">DEVELOPMENT & QUALIFICATIONS</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Training and development opportunities.</strong></div>
+        <div class="overlay-purpose">automatic benefit – no action needed</div>
+      </div>
+    </div>
+
+    <!-- SOCIAL FUND -->
+    <div class="card" data-key="benefits_fund">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 2h16v20H4z"/></svg></span>
+      <span class="card-title">SOCIAL BENEFITS FUND</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Support through the company’s social fund.</strong></div>
+        <div class="overlay-purpose">click here if you have any doubts</div>
+      </div>
+    </div>
+
+    <!-- INSURANCE -->
+    <div class="card" data-key="life_insurance">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 6-4 10-9 10s-9-4-9-10V6z"/></svg></span>
+      <span class="card-title">GROUP LIFE & ACCIDENT INSURANCE</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Life and accident coverage.</strong></div>
+        <div class="overlay-purpose">click here to request it</div>
+      </div>
+    </div>
+
+    <!-- MEDICOVER -->
+    <div class="card" data-key="medicover">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 015 5v5H7V7a5 5 0 015-5z"/></svg></span>
+      <span class="card-title">MEDICOVER – MEDICAL CARE</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Basic medical care fully covered by the employer.</strong></div>
+        <div class="overlay-purpose">click here to request it</div>
+      </div>
+    </div>
+
+    <!-- REFERRAL -->
+    <div class="card" data-key="referral">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M10 2a5 5 0 110 10 5 5 0 010-10z"/></svg></span>
+      <span class="card-title">EMPLOYEE REFERRAL PROGRAM</span>
+
+      <div class="overlay">
+        <div class="overlay-desc"><strong>Recommend candidates and receive incentives.</strong></div>
+        <div class="overlay-purpose">click here if you have any doubts</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast">Opening email…</div>
+
+<script>
+(function(){
+  const emailMap = {
+    multisport: ["asokalska@persan.es"],
+    advertising_products: ["jszostak@persan.es", "emartynowska@persan.es"],
+    meal_subsidy: ["gdudek@persan.es"],
+    benefits_fund: ["asokalska@persan.es"],
+    life_insurance: ["asokalska@persan.es"],
+    medicover: ["asokalska@persan.es"],
+    referral: ["asokalska@persan.es", "jszostak@persan.es"]
+  };
+
+  const isWindows = navigator.userAgent.includes("Windows");
+  const looksLikeOutlook = /Outlook|Microsoft Office/i.test(navigator.userAgent);
+  const separator = (isWindows || looksLikeOutlook) ? ";" : ",";
+
+  function toast() {
+    const t = document.getElementById("toast");
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 1800);
+  }
+
+  function sendMail(key) {
+    const arr = emailMap[key];
+    if (!arr) return;
+    toast();
+    const recipients = arr.join(separator);
+    const subject = encodeURIComponent(`Social Benefit Inquiry – ${key.replace(/_/g, " ")}`);
+    const href = `mailto:${recipients}?subject=${subject}`;
+    const a = document.createElement("a");
+    a.href = href;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  document.addEventListener("click", e => {
+    const card = e.target.closest(".card");
+    if (!card || card.classList.contains("no-mail")) return;
+    if (!card.dataset.key) return;
+    sendMail(card.dataset.key);
+  });
+
+})();
+</script>
+
+</body>
+</html>
