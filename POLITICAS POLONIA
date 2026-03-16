@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>People Document Center - Poland</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+  /* ==========================================================
+     =     PREMIUM VISUAL STYLE (PEOPLE DOCUMENT CENTER)      =
+     ========================================================== */
+
+  :root{
+    --brand:#007fa3;
+    --brand-dark:#005f7c;
+    --bg:#e6f4f7;
+    --card:white;
+    --text:#00333f;
+    --radius:16px;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family:'Segoe UI', Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+
+  .container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 22px 80px;
+  }
+
+  .title{
+    text-align:center;
+    font-size:36px;
+    font-weight:800;
+    margin:0 0 8px;
+    color:var(--brand-dark);
+  }
+
+  .subtitle{
+    text-align:center;
+    font-size:18px;
+    margin:0 0 35px;
+    color:var(--brand);
+  }
+
+  /* Search */
+  .search-row{
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+  }
+
+  #searchInput{
+    padding:14px 20px;
+    width:100%;
+    max-width:520px;
+    border-radius:999px;
+    border:2px solid var(--brand);
+    font-size:16px;
+    outline:none;
+    background:white;
+  }
+  #searchInput:focus{
+    border-color:var(--brand-dark);
+    box-shadow:0 0 0 3px rgba(0,127,163,.25);
+  }
+
+  /* Filters (premium pills) */
+  .filters{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+  }
+
+  .filter-btn{
+    padding:10px 20px;
+    border-radius:999px;
+    border:1px solid var(--brand);
+    background:#f0fafc;
+    color:var(--brand);
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .filter-btn:hover{
+    background:var(--brand);
+    color:white;
+  }
+  .filter-btn.active{
+    background:var(--brand);
+    color:white;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+  }
+
+  /* GRID */
+  .grid{
+    display:grid;
+    gap:28px;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  }
+
+  /* Card (premium) */
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:26px 24px;
+    border:1px solid #c7e1e8;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 6px 14px rgba(0,0,0,.12);
+  }
+
+  .card-title{
+    margin:0 0 8px;
+    font-size:20px;
+    font-weight:800;
+    color:var(--brand-dark);
+  }
+
+  .card-meta{
+    font-size:14px;
+    opacity:.75;
+    margin-bottom:12px;
+  }
+
+  .tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+
+  .tag{
+    padding:6px 12px;
+    background:#eef6f8;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    color:var(--brand-dark);
+  }
+
+  .hidden{display:none}
+
+  /* MODAL (premium) */
+  #modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+    z-index:999;
+  }
+
+  #modal.open{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .modal-content{
+    background:white;
+    padding:32px;
+    border-radius:18px;
+    width:100%;
+    max-width:550px;
+    position:relative;
+    box-shadow:0 6px 16px rgba(0,0,0,.25);
+  }
+
+  .close-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:none;
+    border:none;
+    font-size:22px;
+    cursor:pointer;
+  }
+
+  .modal-title{
+    margin:0 0 10px;
+    font-size:26px;
+    font-weight:800;
+    color:var(--brand-dark);
+  }
+
+  .modal-meta{
+    margin-bottom:14px;
+    opacity:.75;
+  }
+
+  .modal-summary{
+    font-size:16px;
+    line-height:1.5;
+  }
+
+  .modal-actions{
+    margin-top:28px;
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+  }
+
+  .btn{
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    border:none;
+    font-size:14px;
+  }
+
+  .btn-primary{
+    background:var(--brand);
+    color:white;
+  }
+
+  .btn-secondary{
+    background:#ddd;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container" aria-label="People Document Center - Poland">
+    <h1 class="title">People Document Center - Poland</h1>
+    <p class="subtitle">Policies, Procedures, Protocols, Codes &amp; Others</p>
+
+    <!-- SEARCH -->
+    <div class="search-row">
+      <input id="searchInput" type="search" placeholder="Search documents…">
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="policy">Policies</button>
+      <button class="filter-btn" data-filter="procedure">Procedures</button>
+      <button class="filter-btn" data-filter="protocol">Protocols</button>
+      <button class="filter-btn" data-filter="code">Codes</button>
+      <button class="filter-btn" data-filter="other">Others</button>
+    </div>
+
+    <!-- GRID -->
+    <div id="docGrid" class="grid">
+
+      <!-- ===================== POLICIES ===================== -->
+
+
+      <!-- International Mobility -->
+      <article class="card" data-type="policy"
+        data-title="International Mobility Policy"
+        data-tags="mobility assignment international"
+        data-link="https://persan365.sharepoint.com/:u:/r/SitePages/en/Pol%C3%ADtica-de-Movilidad-Internacional.aspx?csf=1&web=1"
+        data-summary="Política corporativa que regula asignaciones internacionales: tipos, compensación, responsabilidades, beneficios y repatriación."
+        data-version="R3">
+        <h3 class="card-title">International Mobility Policy</h3>
+        <div class="card-meta">Version R3</div>
+        <div class="tags">
+          <span class="tag">Mobility</span>
+          <span class="tag">Assignments</span>
+        </div>
+      </article>
+
+      <!-- Mobile Phone Policy -->
+      <article class="card" data-type="policy"
+        data-title="Mobile Phone Free Policy"
+        data-tags="mobile phone policy"
+        data-link="https://persan365.sharepoint.com/:b:/s/humanresources-pl/IQBNeBVnHzsXQ4JMatswJfB3Af3UCbR_eK5HZy7oAzWTnwA"
+        data-summary="Normas de uso de teléfonos móviles en Persán Polska: seguridad, confidencialidad, uso permitido y restricciones."
+        data-version="Current">
+        <h3 class="card-title">Mobile Phone Free Policy</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Mobile</span>
+          <span class="tag">Devices</span>
+        </div>
+      </article>
+
+      <!-- Tobacco Free Policy -->
+      <article class="card" data-type="policy"
+        data-title="Tobacco Free Policy"
+        data-tags="tobacco smoking ban"
+        data-link="https://persan365.sharepoint.com/:b:/s/humanresources-pl/IQCWTL-zsV_3RYnjz82i7FbXAT7X9pWP-xyBO3rZ4VQOPjI"
+        data-summary="Política libre de tabaco: áreas permitidas, reglas de uso, responsabilidades y sanciones."
+        data-version="2023">
+        <h3 class="card-title">Tobacco Free Policy</h3>
+        <div class="card-meta">2023</div>
+        <div class="tags">
+          <span class="tag">Wellbeing</span>
+          <span class="tag">Compliance</span>
+        </div>
+      </article>
+
+      <!-- Work Policy -->
+      <article class="card" data-type="policy"
+        data-title="Work Policy (Regulamin pracy)"
+        data-tags="work rules poland"
+        data-link="https://persan365.sharepoint.com/:b:/s/humanresources-pl/IQDy22GeX4VcQ5ozEmMGq6IuAXllser-CXtXLUr2BUvfw74"
+        data-summary="Regulaciones internas del lugar de trabajo: disciplina, horarios, normas, derechos y obligaciones."
+        data-version="Current">
+        <h3 class="card-title">Work Policy (Poland)</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Workplace</span>
+        </div>
+      </article>
+
+      <!-- Human Rights Policy -->
+      <article class="card" data-type="policy"
+        data-title="Policy respecting international human rights"
+        data-tags="human rights policy"
+        data-link="https://persan365.sharepoint.com/:b:/s/humanresources-pl/IQAstgpq8a0dT4azybMYSYyiAdwMXvp_ikGV8MBazLO0Jfg"
+        data-summary="Política que garantiza el respeto a los derechos humanos internacionales en Persán Polska."
+        data-version="2024">
+        <h3 class="card-title">International Human Rights Policy</h3>
+        <div class="card-meta">2024</div>
+        <div class="tags">
+          <span class="tag">Human Rights</span>
+        </div>
+      </article>
+
+
+      <!-- ===================== PROCEDURES ===================== -->
+
+      <!-- Anti Harassment Procedure -->
+      <article class="card" data-type="procedure"
+        data-title="Anti-Harassment Procedure"
+        data-tags="harassment equality workplace"
+        data-link="https://persan365-my.sharepoint.com/:w:/g/personal/emartynowska_persan_es/IQD4f8B7rBx6SYGS50na2B29ATFPdwzx5u1R7h5CqnMubFg"
+        data-summary="Procedimiento de prevención, gestión y actuación ante situaciones de acoso o discriminación."
+        data-version="Current">
+        <h3 class="card-title">Anti-Harassment Procedure</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Harassment</span>
+          <span class="tag">Workplace</span>
+        </div>
+      </article>
+
+      <!-- Canteen Rules -->
+      <article class="card" data-type="procedure"
+        data-title="Canteen Rules"
+        data-tags="canteen rules poland"
+        data-link="https://persan365-my.sharepoint.com/:b:/g/personal/emartynowska_persan_es/IQCZKZAUbKx1S7nnViSNN3gjAcQeKhmTBVJ5pM08CC8fLt8"
+        data-summary="Normas de uso de la cantina en el edificio de producción de Persán Polska."
+        data-version="Current">
+        <h3 class="card-title">Canteen Rules</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Canteen</span>
+        </div>
+      </article>
+
+      <!-- Parking Rules -->
+      <article class="card" data-type="procedure"
+        data-title="Parking Rules"
+        data-tags="parking rules poland"
+        data-link="https://persan365-my.sharepoint.com/:b:/g/personal/emartynowska_persan_es/IQCBbun83-2CQ4NEcO6djhQVAS5gb8PSQ44lHIxbTL29tCo"
+        data-summary="Instrucciones para el uso del parking interno: acceso, requisitos, normas y seguridad."
+        data-version="2024">
+        <h3 class="card-title">Parking Rules</h3>
+        <div class="card-meta">2024</div>
+        <div class="tags">
+          <span class="tag">Facilities</span>
+        </div>
+      </article>
+
+      <!-- ID Card Rules -->
+      <article class="card" data-type="procedure"
+        data-title="ID Card Rules"
+        data-tags="idcard rules poland"
+        data-link="https://persan365.sharepoint.com/:b:/s/humanresources-pl/IQDe70yxJKzkQIGAGlvLLLAqATGoLbDGIuJtvLli3eIHPj8"
+        data-summary="Normas para el uso del identificador corporativo: accesos, obligaciones y reposiciones."
+        data-version="Current">
+        <h3 class="card-title">ID Card Rules</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">ID Card</span>
+        </div>
+      </article>
+
+
+      <!-- ====================== PROTOCOLS ====================== -->
+
+      <!-- Anti-Harassment Protocol -->
+      <article class="card" data-type="protocol"
+        data-title="Anti-Harassment Protocol"
+        data-tags="protocol harassment"
+        data-link="https://persan365-my.sharepoint.com/:w:/g/personal/emartynowska_persan_es/IQD4f8B7rBx6SYGS50na2B29ATFPdwzx5u1R7h5CqnMubFg"
+        data-summary="Protocolo formal para la prevención y actuación ante acoso."
+        data-version="Current">
+        <h3 class="card-title">Anti-Harassment Protocol</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Protocol</span>
+        </div>
+      </article>
+
+
+      <!-- ======================== CODES ======================== -->
+
+      <!-- Dress Code -->
+      <article class="card" data-type="code"
+        data-title="Dress Code"
+        data-tags="dress code poland clothing"
+        data-link="https://persan365.sharepoint.com/:i:/s/humanresources-pl/IQAWbZO36AThSo1IDO1ogoXAAWNX2Za0U_Y0MTzPFfd-tQw"
+        data-summary="Guía visual de vestimenta aplicable en Persán Polska: imagen profesional y excepciones por seguridad."
+        data-version="Current">
+        <h3 class="card-title">Dress Code</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Clothing</span>
+        </div>
+      </article>
+
+      <!-- Code of Ethics -->
+      <article class="card" data-type="code"
+        data-title="Code of Ethics"
+        data-tags="ethics conduct code"
+        data-link="https://persan365-my.sharepoint.com/:b:/g/personal/emartynowska_persan_es/IQAGFrez7joBTJYQt1dv6XKMAdpV9G5gv5Q-BU2To8Dcgmo"
+        data-summary="Código ético corporativo: principios, valores, conducta profesional y obligaciones legales."
+        data-version="2024">
+        <h3 class="card-title">Code of Ethics</h3>
+        <div class="card-meta">2024</div>
+        <div class="tags">
+          <span class="tag">Ethics</span>
+          <span class="tag">Integrity</span>
+        </div>
+      </article>
+
+
+      <!-- ======================== OTHERS ======================= -->
+
+      <!-- Medical Care -->
+      <article class="card" data-type="other"
+        data-title="Medical Care (Medicover)"
+        data-tags="benefits medical care poland"
+        data-link="https://persan365.sharepoint.com/:b:/s/humanresources-pl/IQCiQTvsNPLFQ6-Y4TPfLe4SAfIlIb89McFyRf0a1VAHQIE"
+        data-summary="Información sobre los paquetes de cobertura médica disponibles para empleados."
+        data-version="Current">
+        <h3 class="card-title">Medical Care (Medicover)</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Benefits</span>
+          <span class="tag">Health</span>
+        </div>
+      </article>
+
+      <!-- Group Life Insurance -->
+      <article class="card" data-type="other"
+        data-title="Group Life Insurance (Uniqa)"
+        data-tags="life insurance benefits"
+        data-link=""
+        data-summary="Información general sobre el seguro de vida colectivo Uniqa disponible para empleados de Persán Polska."
+        data-version="Current">
+        <h3 class="card-title">Group Life Insurance (Uniqa)</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Benefits</span>
+          <span class="tag">Insurance</span>
+        </div>
+      </article>
+
+      <!-- Salary Info -->
+      <article class="card" data-type="other"
+        data-title="Salary Information (Poland)"
+        data-tags="salary payroll poland"
+        data-link="https://persan365.sharepoint.com/:i:/r/sites/humanresources-pl/Shared Documents/WORKDAY 2025/salary.jpg?csf=1&amp;web=1"
+        data-summary="Infografía sobre el sistema de remuneración y fechas de pago en Persán Polska."
+        data-version="Current">
+        <h3 class="card-title">Salary Information (Poland)</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Payroll</span>
+        </div>
+      </article>
+
+      <!-- Vending Machines -->
+      <article class="card" data-type="other"
+        data-title="Vending Machines"
+        data-tags="vending food poland"
+        data-link="https://persan365.sharepoint.com/:i:/s/humanresources-pl/IQB6vmy8vdnbQojkMtcuxv5HAbEKmZz53XEAa2tAChcQJb8"
+        data-summary="Guía rápida de uso de las máquinas expendedoras internas disponibles en Persán Polska."
+        data-version="Current">
+        <h3 class="card-title">Vending Machines</h3>
+        <div class="card-meta">Current</div>
+        <div class="tags">
+          <span class="tag">Facilities</span>
+        </div>
+      </article>
+
+    </div> <!-- end grid -->
+  </div> <!-- end container -->
+
+  <!-- ================ MODAL ================ -->
+  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="close-btn" id="modalClose" aria-label="Close">✕</button>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-summary" id="modalSummary"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="btnCerrar">Close</button>
+        <button class="btn btn-primary" id="btnAbrir">Open document</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const grid = document.getElementById('docGrid');
+      const searchInput = document.getElementById('searchInput');
+      const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalMeta = document.getElementById('modalMeta');
+      const modalSummary = document.getElementById('modalSummary');
+      const btnAbrir = document.getElementById('btnAbrir');
+      const btnCerrar = document.getElementById('btnCerrar');
+      const btnClose = document.getElementById('modalClose');
+
+      let term = "";
+      let activeFilter = "all";
+
+      function applyFilters(){
+        const cards = grid.querySelectorAll('.card');
+        cards.forEach(card=>{
+          const matchesType = activeFilter === "all" || card.dataset.type === activeFilter;
+          const title = (card.dataset.title || "").toLowerCase();
+          const tags = (card.dataset.tags || "").toLowerCase();
+          const matchesSearch = (title + " " + tags).includes(term);
+          card.classList.toggle("hidden", !(matchesType && matchesSearch));
+        });
+      }
+
+      searchInput.addEventListener("input", e=>{
+        term = (e.target.value || "").toLowerCase();
+        applyFilters();
+      });
+
+      filterBtns.forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          filterBtns.forEach(b=>b.classList.remove("active"));
+          btn.classList.add("active");
+          activeFilter = btn.dataset.filter;
+          applyFilters();
+        });
+      });
+
+      grid.addEventListener("click", e=>{
+        const card = e.target.closest(".card");
+        if(!card) return;
+
+        modalTitle.textContent = card.dataset.title || '';
+        modalMeta.textContent = card.dataset.version ? `Version: ${card.dataset.version}` : "";
+        modalSummary.textContent = card.dataset.summary || '';
+
+        const link = card.dataset.link || "";
+        btnAbrir.onclick = () => { if(link) window.open(link, "_blank"); };
+
+        modal.classList.add("open");
+      });
+
+      function closeModal(){
+        modal.classList.remove("open");
+      }
+      btnCerrar.onclick = closeModal;
+      btnClose.onclick = closeModal;
+      modal.addEventListener("click", e=>{ if(e.target===modal) closeModal(); });
+      document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
+
+      applyFilters();
+    })();
+  </script>
+
+</body>
+</html>
