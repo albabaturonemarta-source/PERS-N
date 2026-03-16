@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>People Document Center – Persán France</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root{
+      --brand:#007fa3;
+      --brand-dark:#005f7c;
+      --bg:#f5f9fa;
+      --card:#ffffff;
+      --text:#0f2a30;
+      --radius:14px;
+      --e:.22s ease;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:24px 22px 80px;
+    }
+
+    .title{
+      text-align:center;
+      font-size:32px;
+      color:var(--brand);
+      font-weight:800;
+      margin:0 0 8px;
+    }
+
+    .subtitle{
+      text-align:center;
+      margin:0 0 28px;
+      color:#345;
+      font-size:16px;
+    }
+
+    .search-row{
+      display:flex;
+      justify-content:center;
+      margin-bottom:25px;
+    }
+
+    #searchInput{
+      padding:14px;
+      width:100%;
+      max-width:500px;
+      border:2px solid var(--brand);
+      border-radius:var(--radius);
+      font-size:16px;
+      outline:none;
+    }
+
+    #searchInput:focus{
+      border-color:var(--brand-dark);
+      box-shadow:0 0 0 3px rgba(0,127,163,.25);
+    }
+
+    .grid{
+      display:grid;
+      gap:22px;
+      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    }
+
+    .card{
+      background:var(--card);
+      border:2px solid var(--brand);
+      border-radius:var(--radius);
+      padding:18px;
+      transition:var(--e);
+      cursor:pointer;
+    }
+
+    .card:hover{
+      background:var(--brand);
+      color:#fff;
+      transform:translateY(-4px);
+      box-shadow:0 10px 20px rgba(0,127,163,.25);
+    }
+
+    .card-title{
+      font-size:18px;
+      font-weight:800;
+      margin:0 0 6px;
+    }
+
+    .card-meta{
+      font-size:13px;
+      opacity:.8;
+      margin-bottom:10px;
+    }
+
+    .tags{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+
+    .tag{
+      padding:4px 10px;
+      border-radius:12px;
+      font-size:12px;
+      background:#e7f3f6;
+      color:var(--brand);
+      font-weight:700;
+    }
+
+    .card:hover .tag{
+      background:rgba(255,255,255,.25); 
+      color:#fff;
+    }
+
+    .hidden{display:none}
+
+    /* MODAL */
+    #modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      opacity:0;
+      pointer-events:none;
+      transition:.25s;
+      z-index:999;
+    }
+
+    #modal.open{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .modal-content{
+      background:#fff;
+      padding:28px;
+      border-radius:var(--radius);
+      width:100%;
+      max-width:520px;
+      position:relative;
+    }
+
+    .close-btn{
+      position:absolute;
+      right:10px;
+      top:10px;
+      cursor:pointer;
+      font-size:20px;
+      border:none;
+      background:none;
+    }
+
+    .modal-title{
+      font-size:22px;
+      font-weight:800;
+      color:var(--brand);
+      margin:0 0 10px;
+    }
+
+    .modal-meta{
+      font-size:13px;
+      margin-bottom:12px;
+    }
+
+    .modal-summary{
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .modal-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .btn{
+      padding:10px 16px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .btn-primary{
+      background:var(--brand);
+      color:#fff;
+    }
+
+    .btn-secondary{
+      background:#ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">People Document Center – France</h1>
+    <p class="subtitle">Core Policies & Mandatory Documents</p>
+
+    <!-- Search -->
+    <div class="search-row">
+      <input id="searchInput" type="search" placeholder="Search documents…">
+    </div>
+
+    <!-- GRID WITHOUT FILTERS -->
+    <div id="docGrid" class="grid">
+
+      <!-- Travel Policy France -->
+      <article class="card"
+        data-title="Travel & Expense Policy – France"
+        data-tags="travel expenses mobility france"
+        data-link="https://persan365.sharepoint.com/:b:/s/Commun-fr/IQBkblwEh8MdQYLfKbxPSRlOAXrntHBBSb6h19sHUkBUrOo?e=7hHf8f"
+        data-pdf="https://persan365.sharepoint.com/:b:/s/Commun-fr/IQBkblwEh8MdQYLfKbxPSRlOAXrntHBBSb6h19sHUkBUrOo?e=7hHf8f"
+        data-summary="This Travel & Expense Policy defines the rules for booking, approval workflows, transportation (air, train, rental cars), accommodation, reimbursements, meal limits, mileage, advances, safety requirements, and the Captio reimbursement system used in France. It applies to all employees and external personnel whose travel is funded by Persán France and includes country‑specific cost thresholds and procedures."
+        data-version="Revision 1 – Nov 2024">
+        <h3 class="card-title">Travel & Expense Policy – France</h3>
+        <div class="card-meta">Revision 1 – November 2024</div>
+        <div class="tags">
+          <span class="tag">Travel</span>
+          <span class="tag">Expenses</span>
+          <span class="tag">France</span>
+        </div>
+      </article>
+      
+
+      <!-- Ethics Code -->
+      <article class="card"
+        data-title="Persán France Ethics Code"
+        data-tags="ethics compliance integrity conduct"
+        data-link="https://persan365.sharepoint.com/:b:/s/Commun-fr/IQAi0270bcCOTrAPrS0aI9mzAcK3Is26aFuVwbbjGoeMq7s?e=OQCHxB"
+        data-pdf="https://persan365.sharepoint.com/:b:/s/Commun-fr/IQAi0270bcCOTrAPrS0aI9mzAcK3Is26aFuVwbbjGoeMq7s?e=OQCHxB"
+        data-summary="The Ethics Code establishes Persán’s fundamental values: legal compliance, ethical integrity, anti‑corruption rules, human and labor rights, non‑discrimination, health & safety, confidentiality, data protection, responsible market practices, and the internal reporting procedure for concerns or violations."
+        data-version="Current">
+        <h3 class="card-title">Persán France Ethics Code</h3>
+        <div class="card-meta">Current Version</div>
+        <div class="tags">
+          <span class="tag">Ethics</span>
+          <span class="tag">Compliance</span>
+        </div>
+      </article>
+
+      <!-- Internal Regulations -->
+      <article class="card"
+        data-title="Internal Regulations – Saint‑Vulbas Plant"
+        data-tags="regulations rules safety conduct france"
+        data-link="https://persan365-my.sharepoint.com/shared?listurl=https%3A%2F%2Fpersan365%2Esharepoint%2Ecom%2Fsites%2FCommun%2Dfr%2FDocuments%20partages&viewid=af820718%2De162%2D481e%2Da803%2D73eeebebaccf&id=%2Fsites%2FCommun%2Dfr%2FDocuments%20partages%2FHR%2FREGLEMENT%20INTERIEUR%20USINE%2FR%C3%A8glement%20int%C3%A9rieur%20PERSAN%202023%20sign%C3%A9%2Epdf&parent=%2Fsites%2FCommun%2Dfr%2FDocuments%20partages%2FHR%2FREGLEMENT%20INTERIEUR%20USINE"
+        data-pdf="https://persan365-my.sharepoint.com/shared?listurl=https%3A%2F%2Fpersan365%2Esharepoint%2Ecom%2Fsites%2FCommun%2Dfr%2FDocuments%20partages&viewid=af820718%2De162%2D481e%2Da803%2D73eeebebaccf&id=%2Fsites%2FCommun%2Dfr%2FDocuments%20partages%2FHR%2FREGLEMENT%20INTERIEUR%20USINE%2FR%C3%A8glement%20int%C3%A9rieur%20PERSAN%202023%20sign%C3%A9%2Epdf&parent=%2Fsites%2FCommun%2Dfr%2FDocuments%20partages%2FHR%2FREGLEMENT%20INTERIEUR%20USINE"
+        data-summary="The Internal Regulations of the Saint‑Vulbas site define mandatory rules for hygiene, safety, PPE, conduct, discipline, harassment prevention, alcohol and substance policies, machine safety, emergency procedures, entry/exit rules, use of equipment, and disciplinary actions."
+        data-version="2023">
+        <h3 class="card-title">Internal Regulations – Saint‑Vulbas</h3>
+        <div class="card-meta">Version 2023</div>
+        <div class="tags">
+          <span class="tag">Regulations</span>
+          <span class="tag">Safety</span>
+        </div>
+      </article>
+
+      <!-- Collective Agreement -->
+      <article class="card"
+        data-title="Collective Agreement – Chemical Industry (France)"
+        data-tags="collective-agreement labour law france chemicals"
+        data-link="https://persan365.sharepoint.com/:b:/s/Commun-fr/IQBgQmxSVJarRqicoOyeYeGWAdE-irvHUxn3ZmiMmnoX-LI?e=iXC0a9"
+        data-pdf="https://persan365.sharepoint.com/:b:/s/Commun-fr/IQBgQmxSVJarRqicoOyeYeGWAdE-irvHUxn3ZmiMmnoX-LI?e=iXC0a9"
+        data-summary="The national Chemical Industry Collective Agreement (IDCC 44) outlines employment conditions: classifications, working time, overtime, leave, seniority, training, disciplinary procedures, rights of employee representatives, safety, compensation rules, and sector‑specific obligations for chemical plants."
+        data-version="Updated to 2025">
+        <h3 class="card-title">Collective Agreement – Chemical Industry</h3>
+        <div class="card-meta">Updated 2025</div>
+        <div class="tags">
+          <span class="tag">Labour Law</span>
+          <span class="tag">Collective Agreement</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="modalClose">✕</button>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-summary" id="modalSummary"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="btnCerrar">Close</button>
+        <button class="btn btn-primary" id="btnAbrir">Open document</button>
+        <button class="btn" id="btnDescargar">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const grid = document.getElementById('docGrid');
+      const searchInput = document.getElementById('searchInput');
+
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalMeta = document.getElementById('modalMeta');
+      const modalSummary = document.getElementById('modalSummary');
+      const btnAbrir = document.getElementById('btnAbrir');
+      const btnDescargar = document.getElementById('btnDescargar');
+      const btnCerrar = document.getElementById('btnCerrar');
+      const btnClose = document.getElementById('modalClose');
+
+      let term = "";
+
+      function applySearch(){
+        const cards = grid.querySelectorAll('.card');
+        cards.forEach(card=>{
+          const content = (card.dataset.title + " " + card.dataset.tags).toLowerCase();
+          const match = content.includes(term);
+          card.classList.toggle("hidden", !match);
+        });
+      }
+
+      searchInput.addEventListener("input",(e)=>{
+        term = (e.target.value || "").toLowerCase();
+        applySearch();
+      });
+
+      grid.addEventListener("click",(e)=>{
+        const card = e.target.closest(".card");
+        if(!card) return;
+
+        modalTitle.textContent = card.dataset.title || '';
+        modalMeta.textContent = card.dataset.version ? `Version: ${card.dataset.version}` : "";
+        modalSummary.textContent = card.dataset.summary || '';
+
+        const link = card.dataset.link || "";
+        const pdf  = card.dataset.pdf || "";
+
+        btnAbrir.onclick = () => { if(link) window.open(link, "_blank"); };
+        if(pdf){
+          btnDescargar.classList.remove("hidden");
+          btnDescargar.onclick = () => window.open(pdf, "_blank");
+        }else{
+          btnDescargar.classList.add("hidden");
+          btnDescargar.onclick = null;
+        }
+
+        modal.classList.add("open");
+      });
+
+      function closeModal(){
+        modal.classList.remove("open");
+      }
+
+      btnCerrar.onclick = closeModal;
+      btnClose.onclick = closeModal;
+      modal.addEventListener("click",(e)=>{ if(e.target===modal) closeModal();});
+      document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeModal(); });
+
+      applySearch();
+    })();
+  </script>
+
+</body>
+</html>
